@@ -59,7 +59,7 @@
         $('#right-percentage').text(Math.round(100 * Data.yes_percentage) + '%');
         if (called)
           $('#live-vote-output').fadeIn(300, function() {
-            number.find('span').text(Data.username);
+            $(this).find('span').text(Data.username);
           }).fadeOut(5000);
         else called = true;
       }
