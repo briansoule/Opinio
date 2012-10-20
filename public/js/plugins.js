@@ -11,19 +11,52 @@ if (!(window.console && console.log)) {
     }());
 }
 
-// Place any jQuery/helper plugins in here.
-
-
-
 $('#add-button').click(function(){
 	$('#hidden-field').fadeIn(1000);
-});
-
-$('#question-title').click(function() {
-  $('#left-count').animate({
-    width: '22%'
-  }, 5000, function() {
-    // Animation complete.
+	$('#add-button').animate({
+    'margin-top' : '93px'
   });
 });
 
+// Place any jQuery/helper plugins in here.
+
+Data = {};
+Data.yes_percentage = 45;
+Data.vote = true;
+Data.username = "3565";
+
+// Enable pusher logging - don't include this in production
+Pusher.log = function(message) {
+if (window.console && window.console.log) window.console.log(message);
+};
+
+// Flash fallback logging - don't include this in production
+WEB_SOCKET_DEBUG = true;
+
+var pusher = new Pusher('af559ff310637b1d44a8');
+var channel = pusher.subscribe('opinio');
+channel.bind('action_created', function(data) {
+	alert(data.yes_percentage);
+	if (data.yes_percentage) {Data.yes_percentage = data.yes_percentage;}
+	if (data.vote) {Data.vote = data.vote;}
+	if (data.trues) {Data.trues = data.trues;}
+	if (data.falses) {Data.falses = data.falses;}
+	if (data.username) {Data.username = data.username;
+		if (Data.yes_percentage > 0) {
+			update();
+		}
+	}
+});
+	
+	
+
+function update(){
+  $('#left-count').animate({
+    width: (1 - Data.yes_percentage) * 100 + '%'
+  }, 5000, function() {
+    // Animation complete.
+  });
+  
+  $('#no-count span').text(Data.falses);
+  $('#yes-count span').text(Data.trues);
+}

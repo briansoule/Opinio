@@ -250,6 +250,7 @@ h2 {
 form {
   width: 600px;
   margin: 0 auto;
+  padding-bottom: 3.75em;
 }
 form p {
   position: relative;
@@ -270,6 +271,13 @@ form p label {
 }
 #hidden-field {
   display: none;
+}
+#poll-name-field {
+  float: left;
+  width: 400px;
+}
+#poll-name {
+  width: 328px;
 }
 .button {
   float: left;
@@ -374,6 +382,7 @@ form p label {
 }
 .count-output h3 {
   font-size: 72px;
+  font-weight: normal;
 }
 .count-output p {
   font-size: 24px;
