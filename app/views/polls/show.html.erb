@@ -54,8 +54,8 @@
         }, 5000, function() { /* Animation complete. */ });
         $('#no-count span').text(Data.falses);
         $('#yes-count span').text(Data.trues);
-        $('#left-percentage').text(Math.round(100 * (1 - Data.yes_percentage)));
-        $('#right-percentage').text(Math.round(100 * Data.yes_percentage));
+        $('#left-percentage').text(Math.round(100 * (1 - Data.yes_percentage)) + '%');
+        $('#right-percentage').text(Math.round(100 * Data.yes_percentage) + '%');
         $('#live-vote-output').fadeIn(300, function() {
           var $this = $number.find('span').text(Data.username);
         }).fadeOut(5000);
@@ -101,8 +101,8 @@
           <div class="bend" id="red"></div>
         </div>
         <div id="mid">
-          <div class="count" id="left-count"><h4 id="left-percentage"></h4>%</div>
-          <div class="count" id="right-count"><h4 id="right-percentage"></h4>%</div>
+          <div class="count" id="left-count"><h4 id="left-percentage"></h4></div>
+          <div class="count" id="right-count"><h4 id="right-percentage"></h4></div>
         </div>
         <div id="right">
           <div id="right-sider"></div>
