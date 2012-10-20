@@ -996,12 +996,6 @@ form p label {
   color: #333;
   font-weight: normal;
 }
-.hr {
-  background: #CCC;
-  height: 1px;
-  margin-top: 0.625em;
-  margin-bottom: 1.875em;
-}
 #hidden-field {
   display: none;
 }
@@ -1079,6 +1073,21 @@ form p label {
   width: 100%;
   background: #109de6;
   text-align: right;
+}
+#answer-options {
+  color: white;
+  text-align: center;
+  font-family: georgia;
+  font-size: 24px;
+  padding-top: 10px;
+}
+.red {
+  color: #ef5c29;
+  font-style: italic;
+}
+.blue {
+  color: #109de6;
+  font-style: italic;
 }
 #left-percentage,
 #right-percentage {
