@@ -54,6 +54,8 @@
         }, 5000, function() { /* Animation complete. */ });
         $('#no-count span').text(Data.falses);
         $('#yes-count span').text(Data.trues);
+        $('#left-percentage').text(Math.round(100 * (1 - Data.yes_percentage)));
+        $('#right-percentage').text(Math.round(100 * Data.yes_percentage));
       }
 
       var pusher = new Pusher('af559ff310637b1d44a8');
