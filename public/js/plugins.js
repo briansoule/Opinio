@@ -13,6 +13,17 @@ if (!(window.console && console.log)) {
 
 // Place any jQuery/helper plugins in here.
 
+
+
 $('#add-button').click(function(){
-	$('#hidden-field').fadeIn();
+	$('#hidden-field').fadeIn(1000);
 });
+
+$('#question-title').click(function() {
+  $('#left-count').animate({
+    width: '22%'
+  }, 5000, function() {
+    // Animation complete.
+  });
+});
+
