@@ -56,14 +56,23 @@ class PollsController < ApplicationController
   def create_answer
     @answer = Answer.new
     logger.debug @answer
+    return if params[:From].blank?
+    if params[:Body] == true || params[:Body] =~ (/(true|True|TRUE|t|yes|Yes|YES|y|1)$/i)
+      @answer.affirmative = true
+    elsif params[:Body] == false || params[:Body] =~ (/(false|False|FALSE|f|no|No|NO|n|0)$/i) 
+      @answer.affirmative = false   
+    end 
     @answer.number = params[:From]
-    @answer.affirmative = params[:Body]
     @poll = Poll.find(params[:id])
     @poll.answers << @answer
     @answer.save
     @poll.save
     
     Pusher['opinio'].trigger!('action_created', {:some => 'data'})
+    respond_to do |format|
+      format.html { redirect_to @poll, notice: 'Poll was successfully updated.' }
+      format.json { render json: @poll }
+    end
   end
 
   # PUT /polls/1
