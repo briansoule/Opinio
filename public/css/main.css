@@ -1013,17 +1013,21 @@ form p label {
   border-radius: 5px;
   padding: 1.6625em;
   text-align: center;
-  color: #FFF;
   text-shadow: 0px 1px 1px black;
-  float: right;
-  width: 200px;
+  width: 146px;
   margin-bottom: 3.75em;
 }
 .button:hover {
   background: #4ca440;
   box-shadow: inset 1px 1px 1px black;
-  color: #000;
   text-shadow: 0px 0px 1px white;
+}
+.button a {
+  text-decoration: none;
+  color: #FFF;
+}
+.button:hover a {
+  color: #000;
 }
 #slider-container {
   width: 100%;
