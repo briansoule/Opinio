@@ -1146,7 +1146,7 @@ form p label {
 #lower-data {
   position: relative;
   margin-top: 1.25em;
-  margin-bottom: 3.75em;
+  height: 136px;
 }
 .count-output {
   position: absolute;
