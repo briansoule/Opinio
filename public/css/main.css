@@ -909,6 +909,7 @@ header {
   text-align: center;
   padding: 3.125em 0;
   background: #FFF;
+  min-width: 1024px;
 }
 h1 {
   font-size: 52px;
