@@ -92,6 +92,7 @@ class PollsController < ApplicationController
     @poll.answers.each do |a|
       if a.affirmative == true
         trues = trues + 1
+      end
       if a.affirmative == false
         falses = falses + 1
       end
