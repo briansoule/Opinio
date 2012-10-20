@@ -18,4 +18,4 @@ David Olesch
 Brian Soule
 Tyler Reinhart
 
-weareawesome.andweknowit.s
+weareawesome.andweknowit.
