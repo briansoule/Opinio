@@ -242,12 +242,12 @@ h2 {
 }
 #main {
 	padding-top: 80/@em;
-	h1 {
-		color: #FFF;
+}
+#question-title {
+	color: #FFF;
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 64px;
-	}
+		font-size: 72px;
 }
 .form-input-field {
 	padding: 26.6/@em;
@@ -309,14 +309,52 @@ form {
 	width: 200px;
 	margin-bottom: 60/@em;
 }
-#graph {
-	margin-top: 60/@em;
+
+#slider-container {
+    width: 100%;
+    height: 47px;
+    display: table;
+    margin-top: 60/@em;
 }
-.slider {
-	height: 20px;
-	background: url(../img/slider.png) no-repeat;
-	position: relative;
+#left, #mid, #right {
+    display: table-cell;
+    position: relative;
+}
+#left-sider {
+	width: 100%;
+	background: #ef5c29;
+	margin-top: 23px;
+	height: 51px;
+}
+#right-sider {
+	width: 100%;
+	background: #109de6;
+	margin-top: 23px;
+	height: 51px;
+}
+#mid {
+    width: 900px;
+    background: #333;
+    height: 97px;
+    position: relative;
+}
+.count {
+	position: absolute;
+	top: 0;
+	height: 97px;
+}
+#left-count {
+	background: #ef5c29;
+	left: 0;
+	width: 50%;
+	z-index: 999;
 	
+}
+#right-count {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: #109de6;
 }
 #indicator {
 	height: 70px;
@@ -326,6 +364,49 @@ form {
 	top: -26px;
 	left: 415px;
 }
+.bend {
+	position: absolute;
+	top: 0;
+	height: 97px;
+	width: 120px;
+}
+#red {
+	right:  00px;
+	background: url(../img/red-side.png);
+}
+#blue {
+	left: 0px;
+	background: url(../img/blue-side.png);
+}
+
+#lower-data {
+	position: relative;	
+	margin-top: 20/@em;
+}
+.count-output {
+	position: absolute;
+	top: 0;
+	width: 100px;
+	text-align: center;
+	color: #FFF;
+	font-family: 'LeagueGothicRegular';
+		font-weight: normal;
+		text-transform: uppercase;
+	h3 {
+		font-size: 72px;
+		
+	}
+	p {
+		font-size: 24px;
+	}
+}
+#left-count-container {
+	left: 0;
+}
+#right-count-contaier {
+	right: 0;
+}
+
 
 /* ==========================================================================
    Author's custom styles
