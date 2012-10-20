@@ -14,6 +14,26 @@ class PollsController < ApplicationController
   # GET /polls/1.json
   def show
     @poll = Poll.find(params[:id])
+    
+    #@yes_percentage = trues / @poll.answers.count.to_f
+    #@username = @answer.number.last(4)
+    
+    trues = 0
+    falses = 0
+    @poll.answers.each do |a| 
+      if a.affirmative == true
+        trues = trues + 1
+      else
+        falses = falses + 1
+      end
+    end
+
+    #trues = 12
+    
+    @yes_percentage = trues / @poll.answers.count.to_f
+    @trues = trues
+    @falses = falses
+    @total = @poll.answers.count
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,9 +77,9 @@ class PollsController < ApplicationController
     @answer = Answer.new
     logger.debug @answer
     return if params[:From].blank?
-    if params[:Body] == true || params[:Body] =~ (/(true|True|TRUE|t|yes|Yes|YES|y|1)$/i)
+    if params[:Body] == true || params[:Body] =~ (/(true|True|TRUE|t|yes|Yes|YES|y|Y|1)$/i)
       @answer.affirmative = true
-    elsif params[:Body] == false || params[:Body] =~ (/(false|False|FALSE|f|no|No|NO|n|0)$/i) 
+    elsif params[:Body] == false || params[:Body] =~ (/(false|False|FALSE|f|no|No|NO|n|N|0)$/i) 
       @answer.affirmative = false   
     end 
     @answer.number = params[:From]
@@ -67,8 +87,25 @@ class PollsController < ApplicationController
     @poll.answers << @answer
     @answer.save
     @poll.save
+        
+    #trues = @poll.answers.inject(0) { |sum, n| sum + (n ? 1 : 0) }
+    trues = 0
+    falses = 0
+    @poll.answers.each do |a| 
+      if a.affirmative == true
+        trues = trues + 1
+      else
+        falses = falses + 1
+      end
+    end
+
+    #trues = 12
     
-    Pusher['opinio'].trigger!('action_created', {:some => 'data'})
+    logger.debug yes_percentage = trues / @poll.answers.count.to_f
+    logger.debug username = @answer.number.last(4)
+    
+    
+    Pusher['opinio'].trigger!('action_created', {:some => 'data', :vote => @answer.affirmative, :username => username, :trues => trues, :falses => falses, :yes_percentage => yes_percentage})
     respond_to do |format|
       format.html { redirect_to @poll, notice: 'Poll was successfully updated.' }
       format.json { render json: @poll }

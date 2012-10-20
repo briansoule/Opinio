@@ -1,4 +1,14 @@
 <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
+<script>
+//var pusher = new Pusher('af559ff310637b1d44a8'); // Replace with your app key
+//var channel = pusher.subscribe('opinio');
+Data = {};
+Data.yes_percentage = <%= @yes_percentage %>
+Data.trues = <%= @trues %>
+Data.falses = <%= @falses %>
+Data.total = <%= @total %>
+</script>
+
 <script type="text/javascript">
   // Enable pusher logging - don't include this in production
   Pusher.log = function(message) {
@@ -11,54 +21,35 @@
   var pusher = new Pusher('af559ff310637b1d44a8');
   var channel = pusher.subscribe('opinio');
   channel.bind('action_created', function(data) {
-    change(data);
+    alert(data);
+    if (data.yes_percentage) {Data.yes_percentage = data.yes_percentage;}
+	 if (data.vote) {Data.vote = data.vote;}
+	if (data.username) {Data.username = data.username;}
+	if (data.trues) {Data.trues = data.trues;}
+		if (data.falses) {Data.falses = data.falses;}
+	if (data.total) {Data.total = data.total;}
   });
 </script>
-<header>
-  <div class="wrap">
-    <h1>OPINIO</h1>
-    <h2>Simple text message based polling.</h2>
-    <ul id="logo-icons">
-      <li><img src="../../img/phone-icon.gif" alt="phone-icon" width="21" height="25"></li>
-      <li class="omega"><img src="../../img/check-icon.gif" alt="check-icon" width="27" height="22"></li>
-    </ul>
-  </div>
-</header>
+<p id="notice"><%= notice %></p>
 
-<div id="main">
-  <div class="wrap">
-    <h1 id="question-title">What should our test question be. Should it be about politics or marijuana?</h1>
-  </div>
-  <div id="slider-container">
-  <div id="left">
-    <div id="left-sider"></div>
-    <div class="bend" id="red"></div>
-  </div>
-  <div id="mid">
-    <div class="count" id="left-count"></div>
-    <div class="count" id="right-count"></div>
-  </div>
-  <div id="right">
-    <div id="right-sider"></div>
-    <div class="bend" id="blue"></div>
-  </div>
-</div>
+<p>
+  <b>Name:</b>
+  <%= @poll.name %>
+</p>
 
-<div id="lower-data" class="wrap">
-  <div class="count-output" id="left-count-container">
-    <h3>NO</h3>
-    <p id="no-count">331 votes</p>
-  </div>
-  <div class="count-output" id="right-count-contaier">
-    <h3>YES</h3>
-    <p id="yes-count">331 votes</p>
-  </div>
-</div>
+<p>
+  <b>Description:</b>
+  <%= @poll.description %>
+</p>
 
-<br style="clear: both"/>
-</div>
+<p>
+  <b>Votes:</b>
+  <% @poll.answers.each do |a| %>
+	<%= a.number %> 
+	<%= a.affirmative %><br/>
+  <% end %>
+</p>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
-<script src="/js/plugins.js"></script>
-<script src="/js/main.js"></script>
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>
