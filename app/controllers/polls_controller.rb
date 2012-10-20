@@ -100,6 +100,7 @@ class PollsController < ApplicationController
 
     logger.debug yes_percentage = trues / @poll.answers.count.to_f
     logger.debug username = @answer.number.last(4)
+    logger.debug @answer.affirmative
 
     Pusher['opinio'].trigger!('action_created', {:some => 'data', :vote => @answer.affirmative, :username => username, :trues => trues, :falses => falses, :yes_percentage => yes_percentage})
     respond_to do |format|
