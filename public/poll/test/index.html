@@ -28,13 +28,36 @@
         	</div>
         </header>
         
-        <div id="main" class="wrap">
-        	<h1>What should our test question be. Should it be about politics or marijuana?</h1>
-        	<div id="graph">
-        			<div class="slider">
-        				<div id="indicator"></div>
-        			</div>
-        		</div>
+        <div id="main">
+        	<div class="wrap">
+        		<h1 id="question-title">What should our test question be. Should it be about politics or marijuana?</h1>
+        	</div>
+        	<div id="slider-container">
+			    <div id="left">
+			    	<div id="left-sider"></div>
+				    <div class="bend" id="red"></div>
+			    </div>
+			    <div id="mid">
+				    <div class="count" id="left-count"></div>
+				    <div class="count" id="right-count"></div>
+			    </div>
+			    <div id="right">
+			    	<div id="right-sider"></div>
+				    <div class="bend" id="blue"></div>
+			    </div>
+			</div>
+			
+			<div id="lower-data" class="wrap">
+					<div class="count-output" id="left-count-container">
+						<h3>NO</h3>
+						<p id="no-count">331 votes</p>
+					</div>
+					<div class="count-output" id="right-count-contaier">
+						<h3>YES</h3>
+						<p id="yes-count">331 votes</p>
+					</div>
+			</div>
+        	
 			<br style="clear: both"/>
         </div>
 
