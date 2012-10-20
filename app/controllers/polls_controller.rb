@@ -52,6 +52,16 @@ class PollsController < ApplicationController
       end
     end
   end
+  
+  def create_answer
+    @answer = Answer.new
+    @answer.number = params[:number]
+    @answer.affirmative = params[:affirmative]
+    @poll = Poll.find(params[:id])
+    @poll.answers << @answer
+    @answer.save
+    @poll.save
+  end
 
   # PUT /polls/1
   # PUT /polls/1.json

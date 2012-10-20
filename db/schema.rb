@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020045713) do
+ActiveRecord::Schema.define(:version => 20121020052348) do
 
   create_table "answers", :force => true do |t|
     t.boolean  "affirmative"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121020045713) do
     t.datetime "updated_at",  :null => false
     t.integer  "poll_id"
     t.integer  "number_id"
+    t.string   "number"
   end
 
   create_table "numbers", :force => true do |t|

@@ -10,6 +10,14 @@
   <%= @poll.description %>
 </p>
 
+<p>
+  <b>Votes:</b>
+  <% @poll.answers.each do |a| %>
+	<%= a.number %> 
+	<%= a.affirmative %><br/>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_poll_path(@poll) %> |
 <%= link_to 'Back', polls_path %>
