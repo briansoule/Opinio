@@ -56,8 +56,8 @@ class PollsController < ApplicationController
   def create_answer
     @answer = Answer.new
     logger.debug @answer
-    @answer.number = params[:number]
-    @answer.affirmative = params[:affirmative]
+    @answer.number = params[:From]
+    @answer.affirmative = params[:message]
     @poll = Poll.find(params[:id])
     @poll.answers << @answer
     @answer.save
