@@ -1,0 +1,23 @@
+about
+=====
+
+opinio was created during the 24-hour hackathon "HACK UT" by
+
+Thomas Darr
+
+
+Wolfgang Merkt
+
+
+David Olesch
+
+
+Brian Soule
+
+
+Tyler Reinhart
+
+
+How opinio works
+================
+We are acquiring poll responses with Twilio. Those are processed using our hacked Ruby on Rails webservice on a Heroku webapp instance and actualized live to the results page. 
