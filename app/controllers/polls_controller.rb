@@ -55,12 +55,15 @@ class PollsController < ApplicationController
   
   def create_answer
     @answer = Answer.new
+    logger.debug @answer
     @answer.number = params[:number]
     @answer.affirmative = params[:affirmative]
     @poll = Poll.find(params[:id])
     @poll.answers << @answer
     @answer.save
     @poll.save
+    
+    Pusher['opinio'].trigger!('action_created', {:some => 'data'})
   end
 
   # PUT /polls/1
