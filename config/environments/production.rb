@@ -1,4 +1,10 @@
 Opinio::Application.configure do
+  
+  require 'pusher'
+
+  Pusher.app_id = 30008
+  Pusher.key = 'af559ff310637b1d44a8'
+  Pusher.secret = '9834f2c5aade9d764fc5'
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
