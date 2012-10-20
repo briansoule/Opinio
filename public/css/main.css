@@ -1074,6 +1074,13 @@ form p label {
   background: #109de6;
   text-align: right;
 }
+#answer-options {
+  color: white;
+  text-align: center;
+  font-family: georgia;
+  font-size: 24px;
+  padding-top: 10px;
+}
 .red {
   color: #ef5c29;
   font-style: italic;
