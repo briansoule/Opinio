@@ -58,9 +58,9 @@
         $('#left-percentage').text(Math.round(100 * (1 - Data.yes_percentage)) + '%');
         $('#right-percentage').text(Math.round(100 * Data.yes_percentage) + '%');
         if (called)
-          $('#live-vote-output').fadeIn(300, function() {
+          $('#live-vote-output').fadeIn(200, function() {
             $(this).find('span').text(Data.username);
-          }).fadeOut(3800);
+          }).pause(1000).fadeOut(200);
         else called = true;
       }
 
