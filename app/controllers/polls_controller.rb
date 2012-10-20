@@ -14,10 +14,10 @@ class PollsController < ApplicationController
   # GET /polls/1.json
   def show
     @poll = Poll.find(params[:id])
-    
+
     #@yes_percentage = trues / @poll.answers.count.to_f
     #@username = @answer.number.last(4)
-    
+
     trues = 0
     falses = 0
     @poll.answers.each do |a| 
@@ -28,8 +28,6 @@ class PollsController < ApplicationController
       end
     end
 
-    #trues = 12
-    
     @yes_percentage = trues / @poll.answers.count.to_f
     @trues = trues
     @falses = falses
@@ -87,11 +85,11 @@ class PollsController < ApplicationController
     @poll.answers << @answer
     @answer.save
     @poll.save
-        
+
     #trues = @poll.answers.inject(0) { |sum, n| sum + (n ? 1 : 0) }
     trues = 0
     falses = 0
-    @poll.answers.each do |a| 
+    @poll.answers.each do |a|
       if a.affirmative == true
         trues = trues + 1
       else
@@ -99,12 +97,9 @@ class PollsController < ApplicationController
       end
     end
 
-    #trues = 12
-    
     logger.debug yes_percentage = trues / @poll.answers.count.to_f
     logger.debug username = @answer.number.last(4)
-    
-    
+
     Pusher['opinio'].trigger!('action_created', {:some => 'data', :vote => @answer.affirmative, :username => username, :trues => trues, :falses => falses, :yes_percentage => yes_percentage})
     respond_to do |format|
       format.html { redirect_to @poll, notice: 'Poll was successfully updated.' }
@@ -140,3 +135,4 @@ class PollsController < ApplicationController
     end
   end
 end
+
