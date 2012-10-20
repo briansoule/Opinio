@@ -266,8 +266,8 @@ h2 {
 #add-button {
 	height: 55px;
 	width: 70px;
-	float: left;
 	padding-top: 16px;
+	float: left;
 	margin-right: 20px;
 	cursor: pointer;
 	color: #FFF;
@@ -283,10 +283,10 @@ h2 {
 	text-shadow: 0px 0px 1px white;
 	box-shadow: inset 1px 1px 1px black;
 }
-
 #poll-fields {
 	float: left;
 	width: 506px;
+	font-weight: bold;
 }
 form {
 	width: 600px;
@@ -301,9 +301,11 @@ form {
 			top: 28/@em;
 			left: 28/@em;
 			color: #333;
+			font-weight: normal;
 		}
 	}
 }
+
 .hr {
 	background: #CCC;
 	height: 1px;
@@ -332,13 +334,12 @@ form {
 	float: right;
 	width: 200px;
 	margin-bottom: 60/@em;
-	font-weight: bold;
 }
 .button:hover {
 	background: #4ca440;
+	box-shadow: inset 1px 1px 1px black;
 	color: #000;
 	text-shadow: 0px 0px 1px white;
-	box-shadow: inset 1px 1px 1px black;
 }
 
 #slider-container {
@@ -379,14 +380,52 @@ form {
 	left: 0;
 	width: 50%;
 	z-index: 999;
-	
+	text-align: left;
 }
 #right-count {
 	position: absolute;
 	left: 0;
 	width: 100%;
 	background: #109de6;
+	text-align: right;
+	
 }
+
+//
+#left-percentage, #right-percentage {
+	color: #FFF;
+	font-family: 'LeagueGothicRegular';
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 38px;
+	padding-top: 30px;
+	text-shadow: none;
+}
+#left-percentage {
+	padding-left: 14px;
+	color: #a43913;
+}
+#right-percentage {
+	padding-right: 14px;
+	color: #10567b;
+}
+#live-vote-output {
+	color: #FFF;
+	margin: 0 auto;
+	text-align: center;
+	width: 200px;
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: #000;
+	border: 1px solid #323232;
+	border-radius: 4px;
+	font-family: "Georgia", serif;
+}
+
+
+
+
 #indicator {
 	height: 70px;
 	width: 70px;
@@ -413,6 +452,7 @@ form {
 #lower-data {
 	position: relative;	
 	margin-top: 20/@em;
+	margin-bottom: 60/@em;
 }
 .count-output {
 	position: absolute;
