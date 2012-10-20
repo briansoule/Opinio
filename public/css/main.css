@@ -1110,6 +1110,7 @@ form p label {
   border: 1px solid #323232;
   border-radius: 4px;
   font-family: "Georgia", serif;
+  display: none;
 }
 #indicator {
   height: 70px;
