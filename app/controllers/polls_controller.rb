@@ -103,6 +103,7 @@ class PollsController < ApplicationController
     logger.debug @answer.affirmative
 
     Pusher['opinio'].trigger!('action_created', {:some => 'data', :vote => @answer.affirmative, :username => username, :trues => trues, :falses => falses, :yes_percentage => yes_percentage})
+	@pusher_live = true
     respond_to do |format|
       format.html { redirect_to @poll, notice: 'Poll was successfully updated.' }
       format.json { render json: @poll }
